@@ -2,6 +2,10 @@
 
 A premium, interactive AI Agent Console designed for the brokerage firm **REAL New York**. This application features a live AI Chatbot simulator powered by the Google Gemini API, alongside an Administrative Dashboard to customize the chatbot's behavior, track client leads, and manage a mock listings database.
 
+<p align="center">
+  <img src="assets/chatbot_interface.png" alt="REAL New York Chatbot Interface" width="800">
+</p>
+
 ## 🚀 Features
 
 ### 1. Live Chatbot Simulator
@@ -14,6 +18,10 @@ A premium, interactive AI Agent Console designed for the brokerage firm **REAL N
 * **Smart UI Widgets**: Generates dynamic inline scheduling calendars (`[SCHEDULER]`), client profile forms (`[LEAD_FORM]`), and listing carousels (`[CAROUSEL]`) based on conversation flow.
 
 ### 2. Administrative Console
+<p align="center">
+  <img src="assets/admin_dashboard.png" alt="REAL New York Admin Dashboard" width="800">
+</p>
+
 * **Bot Customizer**: Live-preview custom greeting messages, update preset prompt chips, customize brand accent colors, and manage the Gemini API key.
 * **Leads Captured Database**: Real-time logging of client contact details, tour dates, and search preferences.
 * **Mock Listing Catalog**: View, add, and remove properties in the catalog. The AI agent queries this database instantly when users ask for listings.
