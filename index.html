@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REAL New York AI Chatbot & Admin Dashboard</title>
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode">
+    <div class="app-container">
+        <!-- App Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <div class="logo-box">
+                    <span class="logo-r">R</span>
+                    <span class="logo-e">E</span>
+                    <span class="logo-a">A</span>
+                    <span class="logo-l">L</span>
+                </div>
+                <div class="divider"></div>
+                <span class="app-title">AI Agent Console</span>
+            </div>
+            <div class="header-actions">
+                <span class="pulse-indicator"></span>
+                <span class="status-text">Simulating Active Agent Services</span>
+                <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Light/Dark Mode">
+                    <!-- Moon Icon -->
+                    <svg class="icon moon-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <!-- Sun Icon -->
+                    <svg class="icon sun-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
+            </div>
+        </header>
+
+        <div class="main-layout">
+            <!-- Left Side: Admin, Analytics & Mock DB Panel -->
+            <section class="admin-panel glass-card">
+                <!-- Panel Tabs -->
+                <div class="tab-header">
+                    <button class="tab-btn active" data-tab="settings">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="tab-icon"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                        Bot Customizer
+                    </button>
+                    <button class="tab-btn" data-tab="leads">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="tab-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        Leads Captured <span class="badge" id="leadsBadge">0</span>
+                    </button>
+                    <button class="tab-btn" data-tab="database">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="tab-icon"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path></svg>
+                        NYC Listing DB
+                    </button>
+                </div>
+
+                <!-- Tab Contents -->
+                <div class="tab-body">
+                    <!-- Tab 1: Bot Settings -->
+                    <div class="tab-content active" id="tab-settings">
+                        <div class="section-title">Configure Agent Persona</div>
+                        
+                        <div class="persona-cards-grid">
+                            <div class="persona-card selected" data-persona="emma">
+                                <div class="persona-avatar emma-av">E</div>
+                                <div class="persona-details">
+                                    <span class="persona-name">Emma</span>
+                                    <span class="persona-role">Rentals Specialist</span>
+                                </div>
+                            </div>
+                            <div class="persona-card" data-persona="alex">
+                                <div class="persona-avatar alex-av">A</div>
+                                <div class="persona-details">
+                                    <span class="persona-name">Alex</span>
+                                    <span class="persona-role">Commercial Advisor</span>
+                                </div>
+                            </div>
+                            <div class="persona-card" data-persona="sophia">
+                                <div class="persona-avatar sophia-av">S</div>
+                                <div class="persona-details">
+                                    <span class="persona-name">Sophia</span>
+                                    <span class="persona-role">New Developments Concierge</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customGreeting">Welcome Message</label>
+                            <textarea id="customGreeting" placeholder="Type a custom greeting message..."></textarea>
+                            <span class="helper-text">Updates live in the preview pane instantly.</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Quick Access Preset Prompts</label>
+                            <div id="promptsList" class="prompts-edit-list">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Agent Interface Color Accent</label>
+                            <div class="color-picker-grid">
+                                <div class="color-swatch selected" data-color="#ff5e36" style="background-color: #ff5e36;" title="REAL Orange"></div>
+                                <div class="color-swatch" data-color="#00c853" style="background-color: #00c853;" title="Emerald Green"></div>
+                                <div class="color-swatch" data-color="#00b0ff" style="background-color: #00b0ff;" title="Electric Blue"></div>
+                                <div class="color-swatch" data-color="#d500f9" style="background-color: #d500f9;" title="Purple Spark"></div>
+                                <div class="color-swatch" data-color="#ffd600" style="background-color: #ffd600;" title="Bright Gold"></div>
+                                <div class="color-swatch" data-color="#111111" style="background-color: #ffffff; border: 2px solid #555;" title="Monochrome Light"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed var(--border-color);">
+                            <label for="geminiApiKey">Gemini API Integration</label>
+                            <div style="display: flex; gap: 8px;">
+                                <input type="password" id="geminiApiKey" placeholder="Enter Gemini API Key..." style="flex-grow: 1;">
+                                <button id="saveApiKeyBtn" class="primary-btn size-sm" style="padding: 0 12px; height: 42px;">Save</button>
+                            </div>
+                            <span class="helper-text" id="apiStatusMessage">Mode: Local Rules Engine (offline)</span>
+                        </div>
+
+                        <div class="form-group">
+                            <button id="resetBotBtn" class="secondary-btn">Reset Bot Conversation</button>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: Leads Database -->
+                    <div class="tab-content" id="tab-leads">
+                        <div class="leads-header-row">
+                            <div class="section-title">Captured Client Leads</div>
+                            <button id="clearLeadsBtn" class="danger-btn text-btn">Clear All</button>
+                        </div>
+                        <div class="leads-table-container">
+                            <table class="leads-table" id="leadsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Timestamp</th>
+                                        <th>Contact Details</th>
+                                        <th>Search Prefs</th>
+                                        <th>Action Taken</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="leadsTableBody">
+                                    <tr>
+                                        <td colspan="4" class="empty-table-row">No leads captured yet. Interact with the chat bot tour scheduler or lead forms to populate.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="analytics-mini-panel">
+                            <div class="analytics-card">
+                                <div class="analytics-num" id="totalLeadsNum">0</div>
+                                <div class="analytics-lbl">Total Leads</div>
+                            </div>
+                            <div class="analytics-card">
+                                <div class="analytics-num" id="tourRequestsNum">0</div>
+                                <div class="analytics-lbl">Tour Bookings</div>
+                            </div>
+                            <div class="analytics-card">
+                                <div class="analytics-num" id="popularNeighborhood">N/A</div>
+                                <div class="analytics-lbl">Top Neighborhood</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: NYC Listing DB -->
+                    <div class="tab-content" id="tab-database">
+                        <div class="section-header-row">
+                            <div class="section-title">Mock Listing Catalog</div>
+                            <button id="addListingBtn" class="primary-btn size-sm">+ Add Listing</button>
+                        </div>
+                        <p class="section-desc">The AI agent queries this database in real time during search inquiries.</p>
+                        
+                        <div class="listings-grid-db" id="dbListingsContainer">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Side: Live Chatbot Simulator -->
+            <section class="chat-panel">
+                <div class="chat-container glass-card">
+                    <!-- Chat Header -->
+                    <div class="chat-header-bar" id="chatHeaderBar">
+                        <div class="agent-avatar-status">
+                            <div class="agent-avatar-bubble" id="activeAgentAvatar">E</div>
+                            <span class="active-status-dot"></span>
+                        </div>
+                        <div class="agent-info-labels">
+                            <span class="agent-name-label" id="activeAgentName">Emma</span>
+                            <span class="agent-sub-label" id="activeAgentRole">Residential Rentals Specialist</span>
+                        </div>
+                        <div class="agent-logo-stamp">REAL</div>
+                    </div>
+
+                    <!-- Chat Body / Messages Container -->
+                    <div class="chat-body" id="chatBody">
+                        <!-- Dynamic Messages loaded here -->
+                    </div>
+
+                    <!-- Suggestion Chips Container -->
+                    <div class="suggestion-chips-wrapper">
+                        <div class="suggestion-chips-container" id="suggestionContainer">
+                            <!-- Populated dynamically based on persona -->
+                        </div>
+                    </div>
+
+                    <!-- Chat Footer Input -->
+                    <div class="chat-input-bar">
+                        <input type="text" id="chatInputField" placeholder="Ask about listings, neighborhoods, or rentals requirements..." autocomplete="off">
+                        <button class="send-message-btn" id="sendMessageBtn" title="Send Message">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Modal for adding listings -->
+    <div class="modal-overlay" id="addListingModal">
+        <div class="modal-card glass-card">
+            <div class="modal-header">
+                <h3>Add New NYC Mock Listing</h3>
+                <button class="modal-close-btn" id="closeModalBtn">&times;</button>
+            </div>
+            <form id="addListingForm" class="modal-form">
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label for="listTitle">Building/Name *</label>
+                        <input type="text" id="listTitle" required placeholder="e.g. Skyline Residences">
+                    </div>
+                    <div class="form-group">
+                        <label for="listNeighborhood">Neighborhood *</label>
+                        <select id="listNeighborhood" required>
+                            <option value="Long Island City">Long Island City</option>
+                            <option value="Williamsburg">Williamsburg</option>
+                            <option value="Lower East Side">Lower East Side</option>
+                            <option value="Gramercy Park">Gramercy Park</option>
+                            <option value="Flatbush">Flatbush</option>
+                            <option value="Astoria">Astoria</option>
+                            <option value="East Village">East Village</option>
+                            <option value="Soho">Soho</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row-3">
+                    <div class="form-group">
+                        <label for="listPrice">Rent / Price ($) *</label>
+                        <input type="number" id="listPrice" required min="1" placeholder="e.g. 3500">
+                    </div>
+                    <div class="form-group">
+                        <label for="listBeds">Bedrooms *</label>
+                        <select id="listBeds" required>
+                            <option value="Studio">Studio</option>
+                            <option value="1 BR">1 BR</option>
+                            <option value="2 BR">2 BR</option>
+                            <option value="3 BR">3 BR</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="listBaths">Bathrooms *</label>
+                        <select id="listBaths" required>
+                            <option value="1">1</option>
+                            <option value="1.5">1.5</option>
+                            <option value="2">2</option>
+                            <option value="2.5">2.5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="listFeatures">Key Features (Comma separated)</label>
+                    <input type="text" id="listFeatures" placeholder="e.g. Gym, Roof Deck, Doorman, Balcony, In-Unit W/D">
+                </div>
+                <div class="form-group">
+                    <label for="listImage">Image URL preset</label>
+                    <select id="listImage">
+                        <option value="midori">Modern Glass Tower</option>
+                        <option value="bedford">Sleek Dark Brick Development</option>
+                        <option value="gemma">Classic Gramercy Luxury</option>
+                        <option value="hana">Minimalist Light Wood Loft</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="listDesc">Short Description</label>
+                    <textarea id="listDesc" rows="2" placeholder="Brief elevator pitch for listing..."></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="secondary-btn" id="cancelModalBtn">Cancel</button>
+                    <button type="submit" class="primary-btn">Insert Into Catalog</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script imports -->
+    <script src="app.js"></script>
+</body>
+</html>
